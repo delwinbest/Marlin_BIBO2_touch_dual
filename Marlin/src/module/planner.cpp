@@ -70,7 +70,7 @@
 #include "../core/language.h"
 #include "../gcode/parser.h"
 
-#include "../Marlin.h"
+#include "../MarlinCore.h"
 
 #if HAS_LEVELING
   #include "../feature/bedlevel/bedlevel.h"
@@ -2749,7 +2749,7 @@ void Planner::refresh_positioning() {
 inline void limit_and_warn(float &val, const uint8_t axis, PGM_P const setting_name, const xyze_float_t &max_limit) {
   const uint8_t lim_axis = axis > E_AXIS ? E_AXIS : axis;
   const float before = val;
-  LIMIT(val, 1, max_limit[lim_axis]);
+  LIMIT(val, 0.1, max_limit[lim_axis]);
   if (before != val) {
     SERIAL_CHAR(axis_codes[lim_axis]);
     SERIAL_ECHOPGM(" Max ");
@@ -2764,8 +2764,8 @@ void Planner::set_max_acceleration(const uint8_t axis, float targetValue) {
       constexpr xyze_float_t max_accel_edit = MAX_ACCEL_EDIT_VALUES;
       const xyze_float_t &max_acc_edit_scaled = max_accel_edit;
     #else
-      constexpr xyze_float_t max_accel_edit = DEFAULT_MAX_ACCELERATION,
-                             max_acc_edit_scaled = max_accel_edit * 2;
+      constexpr xyze_float_t max_accel_edit = DEFAULT_MAX_ACCELERATION;
+      const xyze_float_t max_acc_edit_scaled = max_accel_edit * 2;
     #endif
     limit_and_warn(targetValue, axis, PSTR("Acceleration"), max_acc_edit_scaled);
   #endif
@@ -2781,8 +2781,8 @@ void Planner::set_max_feedrate(const uint8_t axis, float targetValue) {
       constexpr xyze_float_t max_fr_edit = MAX_FEEDRATE_EDIT_VALUES;
       const xyze_float_t &max_fr_edit_scaled = max_fr_edit;
     #else
-      constexpr xyze_float_t max_fr_edit = DEFAULT_MAX_FEEDRATE,
-                             max_fr_edit_scaled = max_fr_edit * 2;
+      constexpr xyze_float_t max_fr_edit = DEFAULT_MAX_FEEDRATE;
+      const xyze_float_t max_fr_edit_scaled = max_fr_edit * 2;
     #endif
     limit_and_warn(targetValue, axis, PSTR("Feedrate"), max_fr_edit_scaled);
   #endif
