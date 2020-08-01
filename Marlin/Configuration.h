@@ -1135,11 +1135,11 @@
 #define Y_BED_SIZE 173    // Should be the total distance between Y Min and Max, at least
 
 // Travel limits (mm) after homing, corresponding to endstop positions.
-#define X_MIN_POS 0
-#define Y_MIN_POS 0
+#define X_MIN_POS 0    // - X BED Size 214/2, ther are no obstacles here so it can be the actual min value
+#define Y_MIN_POS 1.5     // Additional fan scrapes the front cover, reducing to accmodate
 #define Z_MIN_POS 0
-#define X_MAX_POS X_BED_SIZE
-#define Y_MAX_POS Y_BED_SIZE
+#define X_MAX_POS 252     // Add Home Position Offset)
+#define Y_MAX_POS 174.5      // Subtract Home Position Offset)
 #define Z_MAX_POS 186
 
 /**
@@ -1321,7 +1321,7 @@
 
   //#define MESH_EDIT_GFX_OVERLAY   // Display a graphics overlay while editing the mesh
 
-  #define MESH_INSET 1              // Set Mesh bounds as an inset region of the bed
+  #define MESH_INSET 0              // Set Mesh bounds as an inset region of the bed
   #define GRID_MAX_POINTS_X 10      // Don't use more than 15 points per axis, implementation limited.
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
 
