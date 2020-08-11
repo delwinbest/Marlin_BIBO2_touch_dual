@@ -1132,14 +1132,15 @@
 
 // The size of the print bed
 #define X_BED_SIZE 214
-#define Y_BED_SIZE 173    // Should be the total distance between Y Min and Max, at least
+#define Y_BED_SIZE 170    //  have camera at Y max which i need to protect. 
 
 // Travel limits (mm) after homing, corresponding to endstop positions.
-#define X_MIN_POS 0    // - X BED Size 214/2, ther are no obstacles here so it can be the actual min value
-#define Y_MIN_POS 1.5     // Additional fan scrapes the front cover, reducing to accmodate
+#define X_MIN_POS 0    
+#define Y_MIN_POS 0     // Additional fan scrapes the front cover, reducing to accmodate
 #define Z_MIN_POS 0
 #define X_MAX_POS 252     // Add Home Position Offset)
-#define Y_MAX_POS 174.5      // Subtract Home Position Offset)
+//#define Y_MAX_POS 174.5      // Subtract Home Position Offset)
+#define Y_MAX_POS 170
 #define Z_MAX_POS 186
 
 /**
