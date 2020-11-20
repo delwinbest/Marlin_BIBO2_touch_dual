@@ -2357,6 +2357,7 @@
   //#define NEOPIXEL_PIN     4       // LED driving pin
   //#define NEOPIXEL2_TYPE NEOPIXEL_TYPE
   //#define NEOPIXEL2_PIN    5
+  #define NEOPIXEL2_INSERIES false // The default behaviour is 'false' with neopixel2 in parallel
   #define NEOPIXEL_PIXELS 24       // Number of LEDs in the strip, larger of 2 strips if 2 neopixel strips are used
   #define NEOPIXEL_IS_SEQUENTIAL   // Sequential display for temperature change - LED by LED. Disable to change all LEDs at once.
   #define NEOPIXEL_BRIGHTNESS 255  // Initial brightness (0-255)
