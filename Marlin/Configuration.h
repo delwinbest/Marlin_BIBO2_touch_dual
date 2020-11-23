@@ -1118,7 +1118,7 @@
 
 // The size of the print bed
 #define X_BED_SIZE 214
-#define Y_BED_SIZE 152    //  have camera at Y max which i need to protect. 
+#define Y_BED_SIZE 173    //  have camera at Y max which i need to protect. 
 
 // Travel limits (mm) after homing, corresponding to endstop positions.
 #define X_MIN_POS 0    
@@ -1126,14 +1126,14 @@
 #define Z_MIN_POS 0
 #define X_MAX_POS 252     // Add Home Position Offset)
 //#define Y_MAX_POS 174.5      // Subtract Home Position Offset)
-#define Y_MAX_POS 152
+#define Y_MAX_POS 173
 #define Z_MAX_POS 186
 
 /**
  * Software Endstops
  *
  * - Prevent moves outside the set machine bounds.
- * - Individual axes can be disabled, if desired.
+ * - Individual axes can be disabled, if desired. 
  * - X and Y only apply to Cartesian robots.
  * - Use 'M211' to set software endstops on/off or report current state
  */
